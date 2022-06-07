@@ -34,4 +34,4 @@ app.use((error, req, res, next) => {
     message: errorMessage,
   });
 });
-app.listen(5000, console.log("Server On"));
+app.listen(process.env.PORT || 5000, console.log("Server On"));

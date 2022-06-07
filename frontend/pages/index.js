@@ -15,7 +15,7 @@ export default function Home({ computers }) {
 
 export async function getServerSideProps() {
   const computers = await fetch(
-    "http://localhost:5000/products/category?category=Computers"
+    process.env.BACKURL + "products/category?category=Computers"
   ).then((res) => res.json());
   return {
     props: {

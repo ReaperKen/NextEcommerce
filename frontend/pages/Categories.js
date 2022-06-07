@@ -22,10 +22,10 @@ export default Categories;
 export async function getServerSideProps() {
   const [computers, menClothes] = await Promise.all([
     fetch(
-      "http://localhost:5000/products/category?category=Computers&limit=18"
+      process.env.BACKURL + "products/category?category=Computers&limit=18"
     ).then((res) => res.json()),
     fetch(
-      "http://localhost:5000/products/category?category=MenClothes&limit=18"
+      process.env.BACKURL + "products/category?category=MenClothes&limit=18"
     ).then((res) => res.json()),
   ]);
 

@@ -37,7 +37,7 @@ const Product = ({ data }) => {
 export default Product;
 
 export async function getStaticPaths() {
-  const data = await fetch("http://localhost:5000/products").then((res) =>
+  const data = await fetch(process.env.BACKURL + "products").then((res) =>
     res.json()
   );
   const paths = data.map(({ _id }) => ({ params: { id: `${_id}` } }));
@@ -49,7 +49,7 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps({ params }) {
   const data = await fetch(
-    `http://localhost:5000/products/find/${params.id}`
+    process.env.BACKURL + `products/find/${params.id}`
   ).then((res) => res.json());
 
   return {
